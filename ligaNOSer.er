@@ -1,0 +1,23 @@
+CLUBE(_ Nome _, DataFund, Estadio ?,  .AnosExist. ,_ Classificacao _)
+
+JOGADORES(_ JogadoresId _, Nome, Clube, Numero, Posicao, País)
+
+MARCADORES(_ JogadoresId _, Clube, Golos)
+
+JOGOS_CLUBE(_ JogosClubeId _, NumJogos, Resultados(Vitorias, Empates, Derrotas), Pontos)
+ 
+CLASSIFICACAO(_ Lugar _ , _ Clube _)
+
+CLAQUE(_ Clube _,{  Claque  } )
+
+JOGADORES === N === <JOGAM_EM> === 1 === CLUBE 
+
+JOGADORES --- M --- <MARCAM> === N ===  MARCADORES 
+
+CLUBE === N === <LUGAR_EM> === 1 ===  CLASSIFICACAO
+
+JOGOS_CLUBE === N === <FEITOS_POR> === 1 === CLUBE
+
+MARCADORES --- N --- <REPRESENTAM> === 1 === CLUBE
+
+CLUBE === 1 === <TEM> === N ===  CLAQUE
